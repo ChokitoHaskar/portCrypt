@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
-import { View, Text, TextInput, StyleSheet, TouchableWithoutFeedback, TouchableOpacity, Keyboard } from 'react-native'
+import { View, Text, TextInput, StyleSheet, TouchableWithoutFeedback, TouchableOpacity, Keyboard, LogBox } from 'react-native'
 import { globalStyles } from '../styles/Global'
 
+LogBox.ignoreAllLogs()
+
 const affineCipher = () => {
-    const [text, setText] = useState('')
+    let [text, setText] = useState('')
     let [key, setKey] = useState('')
     let [key2, setKey2] = useState('')
     let [cipherText, setCipher] = useState()
@@ -11,6 +13,7 @@ const affineCipher = () => {
     const alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
 
     const Encrypt = () => {
+        // Memisah tiap char pada plaintext menjadi array
         const textChar = text.split('')
         const textMap = []
 

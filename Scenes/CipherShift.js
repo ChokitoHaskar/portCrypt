@@ -5,12 +5,13 @@ import { globalStyles } from '../styles/Global'
 LogBox.ignoreAllLogs()
 
 const shiftCipher = () => {
-  const [text, setText] = useState('')
-  const [cipherText, setCipher] = useState()
+  let [text, setText] = useState('')
+  let [cipherText, setCipher] = useState()
   let [key, setKey] = useState('')
 
   // Convert ke Ciphertext
   const Encrypt = () => {
+    // Memisah tiap char pada plaintext menjadi array
     const textChar = text.split('')
     let textMap = []
     

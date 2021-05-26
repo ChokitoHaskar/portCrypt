@@ -17,10 +17,9 @@ const home = ({navigation}) => {
           <Text style={{color:'white'}}>Affine</Text>
         </View>
       </TouchableOpacity>
-      <TouchableOpacity onPress={ () => {} }>
+      <TouchableOpacity onPress={ () => navigation.navigate('VigenereCipher') }>
         <View style={[styles.button, {backgroundColor: '#004E64'}]}>
           <Text style={{color:'white', fontSize: 12.5}}>Vigenere</Text>
-          <Text style={{color:'white', fontSize: 10}}>(WIP)</Text>
         </View>
       </TouchableOpacity>
     </View>
