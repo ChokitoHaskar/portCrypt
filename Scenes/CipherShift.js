@@ -108,7 +108,7 @@ const shiftCipher = () => {
         />
 
         <Text>Output</Text>
-        <Text style={globalStyles.inputC}> {cipherText} </Text>
+        <Text style={globalStyles.input}> {cipherText} </Text>
         
         <View style={{flexDirection:'row'}}>
           <TouchableOpacity onPress={Encrypt}>
