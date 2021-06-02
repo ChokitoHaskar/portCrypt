@@ -8,17 +8,17 @@ const home = ({navigation}) => {
   return(
     <View style={[globalStyles.base, {flexDirection: 'row'}]}>
       <TouchableOpacity onPress={ () => navigation.navigate('ShiftCipher')}>
-        <View style={[styles.button, {backgroundColor: '#533A7B'}]}>
+        <View style={[styles.button, {backgroundColor: '#CC3F0C'}]}>
           <Text style={{color:'white'}}>Shift</Text>
         </View>
       </TouchableOpacity>
       <TouchableOpacity onPress={ () => navigation.navigate('AffineCipher')}>
-        <View style={[styles.button, {backgroundColor: '#25171A'}]}>
+        <View style={[styles.button, {backgroundColor: '#9A6D38'}]}>
           <Text style={{color:'white'}}>Affine</Text>
         </View>
       </TouchableOpacity>
       <TouchableOpacity onPress={ () => navigation.navigate('VigenereCipher') }>
-        <View style={[styles.button, {backgroundColor: '#004E64'}]}>
+        <View style={[styles.button, {backgroundColor: '#33673B'}]}>
           <Text style={{color:'white', fontSize: 12.5}}>Vigenere</Text>
         </View>
       </TouchableOpacity>
