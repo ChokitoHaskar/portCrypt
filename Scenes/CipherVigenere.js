@@ -31,6 +31,8 @@ const vigenereCipher = () => {
                     // Cek apakah Textchar merupakan huruf kapital
                     if (textChar[index] === textChar[index].toUpperCase()) {
                         ascii = (ascii - 65) + asciiK
+                        
+                        // Ketika ascii lebih dari total alphabet, maka urutan ascii diulang dari awal
                         if (ascii > 25) {
                             ascii = ascii % 26
                         }
@@ -39,6 +41,8 @@ const vigenereCipher = () => {
                     // Cek apakah Textchar merupakan huruf kecil
                     if (textChar[index] === textChar[index].toLowerCase()) {
                         ascii = (ascii - 97) + asciiK
+
+                        // Ketika ascii lebih dari total alphabet, maka urutan ascii diulang dari awal
                         if (ascii > 25) {
                             ascii = ascii % 26
                         }
@@ -86,8 +90,8 @@ const vigenereCipher = () => {
                     // Cek apakah Textchar merupakan huruf kapital
                     if (textChar[index] === textChar[index].toUpperCase()) {
                         ascii = (ascii - 65) - asciiK
-                        console.log('ascii: '+ascii)
 
+                        // Ketika ascii kurang dari 0, maka urutan ascii diulang dari belakang
                         if (ascii < 0) {
                             ascii = ascii + 26
                         }
@@ -96,8 +100,8 @@ const vigenereCipher = () => {
                     // Cek apakah Textchar merupakan huruf kecil
                     if (textChar[index] === textChar[index].toLowerCase()) {
                         ascii = (ascii - 97) - asciiK
-                        console.log('ascii: '+ascii)
 
+                        // Ketika ascii kurang dari 0, maka urutan ascii diulang dari belakang
                         if (ascii < 0) {
                             ascii = ascii + 26
                         }
@@ -144,7 +148,7 @@ const vigenereCipher = () => {
                 />
                
                 <Text>Output</Text>
-                <Text style={globalStyles.inputC}> {cipher} </Text>
+                <Text style={globalStyles.input}> {cipher} </Text>
                 
                 <View style={{flexDirection:'row'}}>
                     <TouchableOpacity onPress={Encrypt}>
