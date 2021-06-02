@@ -22,7 +22,7 @@ const LoginPage = ({navigation}) => {
                     </View>
                     <View style={style.div}>
                         <Text style={globalStyles.authText}>PASSWORD</Text>
-                        <TextInput style={[globalStyles.authInput]}/>
+                        <TextInput secureTextEntry={true} style={[globalStyles.authInput]}/>
                     </View>
                 </View>
                 <View style={[ style.div, {flex:1, justifyContent:'flex-end'} ]}>
