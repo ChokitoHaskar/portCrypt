@@ -1,12 +1,35 @@
 import { StackActions } from '@react-navigation/routers'
-import * as React from 'react'
-import { Keyboard, StyleSheet, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native'
+import React, { useState } from 'react'
+import { Alert, Button, Keyboard, StyleSheet, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native'
 import { globalStyles } from '../../styles/Global'
+import { login } from '../API/FirebaseMethod'
 
 const LoginPage = ({navigation}) => {
     
-    const Login = () => {
-        navigation.dispatch(StackActions.push('Home'))
+    // Setting state untuk pengecekan informasi Login
+    const [Username, setUsername] = useState('')
+    const [Password, setPassword] = useState('')
+
+    // Mereset kolom username dan password
+    const emptyState = () => {
+        setUsername('')
+        setPassword('')
+    }
+
+    // Proses pengecekan informasi login
+    const cekLogin = () => {
+        if (!Username) {
+            Alert.alert('Username is required', 'Tolong masukkan Username ke kolom username')
+        } else if (!Password) {
+            Alert.alert('Password is required', 'Tolong masukkan Password ke kolom password')
+        } else {
+            login(
+                Username,
+                Password
+            )
+            navigation.dispatch(StackActions.push('Home'))
+            emptyState()
+        }
     }
 
     return (
@@ -18,15 +41,20 @@ const LoginPage = ({navigation}) => {
                 <View style={[ style.div, {flex:2, justifyContent:'space-evenly'} ]}>
                     <View style={style.div}>
                         <Text style={globalStyles.authText}>USERNAME</Text>
-                        <TextInput style={globalStyles.authInput}/>
+                        <TextInput  value={Username}
+                                    onChangeText={setUsername}
+                                    style={globalStyles.authInput}/>
                     </View>
                     <View style={style.div}>
                         <Text style={globalStyles.authText}>PASSWORD</Text>
-                        <TextInput secureTextEntry={true} style={[globalStyles.authInput]}/>
+                        <TextInput  value={Password}
+                                    onChangeText={setPassword}
+                                    secureTextEntry={true}
+                                    style={[globalStyles.authInput]}/>
                     </View>
                 </View>
                 <View style={[ style.div, {flex:1, justifyContent:'flex-end'} ]}>
-                    <TouchableOpacity onPress={Login}>
+                    <TouchableOpacity onPress={cekLogin}>
                         <Text style={ globalStyles.authButton }>Login</Text>
                     </TouchableOpacity>
                 </View>
