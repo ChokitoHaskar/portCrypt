@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { Alert, Keyboard, StyleSheet, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native'
 import { color } from 'react-native-reanimated'
 import { globalStyles } from '../../styles/Global'
-import { registration } from '../API/FirebaseMethod'
+import { registration, signUp } from '../API/FirebaseMethod'
 
 
 const RegisterPage = ({navigation}) => {
@@ -34,7 +34,12 @@ const RegisterPage = ({navigation}) => {
         } else if (ConfirmPassword != Password) {
             Alert.alert('Password does not match', 'Tolong masukkan ulang Password anda ke kolom password')
         } else {
-            navigation.dispatch(StackActions.replace('LoginPage'))
+            signUp(
+                Email,
+                Username,
+                Password
+            )
+            navigation.replace('Loading')
             emptyState()
         }
     }
@@ -49,28 +54,28 @@ const RegisterPage = ({navigation}) => {
                     <View style={[style.div,{marginVertical:30}]}>
                         <Text style={globalStyles.authText}>E-MAIL</Text>
                         <TextInput value={Email}
-                                   onChangeText={setEmail}
+                                   onChangeText={(Email) => setEmail(Email)}
                                    style={globalStyles.authInput}
                                    keyboardType='email-address' />
                     </View>
                     <View style={[style.div,{marginVertical:30}]}>
                         <Text style={globalStyles.authText}>USERNAME</Text>
                         <TextInput value={Username}
-                                   onChangeText={setUsername}
+                                   onChangeText={(Username) => setUsername(Username)}
                                    style={globalStyles.authInput} />
                     </View>
                     <View style={[style.div,{marginVertical:30}]}>
                         <Text style={globalStyles.authText}>PASSWORD</Text>
                         <TextInput secureTextEntry={true}
                                    value={Password}
-                                   onChangeText={setPassword}
+                                   onChangeText={(Password) => setPassword(Password)}
                                    style={globalStyles.authInput}/>
                     </View>
                     <View style={[style.div,{marginVertical:30}]}>
                         <Text style={globalStyles.authText}>CONFIRM PASSWORD</Text>
                         <TextInput secureTextEntry={true}
                                    value={ConfirmPassword}
-                                   onChangeText={setConfirmPassword}
+                                   onChangeText={(ConfirmPassword) => setConfirmPassword(ConfirmPassword)}
                                    style={globalStyles.authInput}/>
                     </View>
                 </View>

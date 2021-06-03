@@ -2,32 +2,32 @@ import { StackActions } from '@react-navigation/routers'
 import React, { useState } from 'react'
 import { Alert, Button, Keyboard, StyleSheet, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native'
 import { globalStyles } from '../../styles/Global'
-import { login } from '../API/FirebaseMethod'
+import { signIn } from '../API/FirebaseMethod'
 
 const LoginPage = ({navigation}) => {
     
     // Setting state untuk pengecekan informasi Login
-    const [Username, setUsername] = useState('')
+    const [Email, setEmail] = useState('')
     const [Password, setPassword] = useState('')
 
     // Mereset kolom username dan password
     const emptyState = () => {
-        setUsername('')
+        setEmail('')
         setPassword('')
     }
 
     // Proses pengecekan informasi login
     const cekLogin = () => {
-        if (!Username) {
-            Alert.alert('Username is required', 'Tolong masukkan Username ke kolom username')
+        if (!Email) {
+            Alert.alert('Email is required', 'Tolong masukkan email ke kolom username')
         } else if (!Password) {
             Alert.alert('Password is required', 'Tolong masukkan Password ke kolom password')
         } else {
-            login(
-                Username,
+            signIn(
+                Email,
                 Password
             )
-            navigation.dispatch(StackActions.push('Home'))
+            navigation.replace('Loading')
             emptyState()
         }
     }
@@ -40,15 +40,15 @@ const LoginPage = ({navigation}) => {
                 </View>
                 <View style={[ style.div, {flex:2, justifyContent:'space-evenly'} ]}>
                     <View style={style.div}>
-                        <Text style={globalStyles.authText}>USERNAME</Text>
-                        <TextInput  value={Username}
-                                    onChangeText={setUsername}
+                        <Text style={globalStyles.authText}>E-MAIL</Text>
+                        <TextInput  value={Email}
+                                    onChangeText={Email => setEmail(Email)}
                                     style={globalStyles.authInput}/>
                     </View>
                     <View style={style.div}>
                         <Text style={globalStyles.authText}>PASSWORD</Text>
                         <TextInput  value={Password}
-                                    onChangeText={setPassword}
+                                    onChangeText={Password => setPassword(Password)}
                                     secureTextEntry={true}
                                     style={[globalStyles.authInput]}/>
                     </View>
