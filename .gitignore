@@ -55,3 +55,4 @@ web-build/
 
 # Firebase SDK
 config/keys.js
+google-services.json
