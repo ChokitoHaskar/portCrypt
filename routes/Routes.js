@@ -8,6 +8,8 @@ import shiftCipher from '../Scenes/CipherShift'
 import vigenereCipher from '../Scenes/CipherVigenere';
 import loginPage from '../Scenes/Auth/Login';
 import registerPage from '../Scenes/Auth/Register';
+import usersTable from '../Scenes/Admin/UsersTable'
+import loadingScreen from '../Scenes/Loading'
 
 const Stack = createStackNavigator()
 
@@ -34,6 +36,8 @@ function routes() {
                 <Stack.Screen name='ShiftCipher' component={shiftCipher} options={{ title: 'Shift Cipher' }}/>
                 <Stack.Screen name='AffineCipher' component={affineCipher} options={{ title: 'Affine Cipher' }}/>
                 <Stack.Screen name='VigenereCipher' component={vigenereCipher} options={{ title: 'Vigenere Cipher' }}/>
+                <Stack.Screen name='UsersTable' component={usersTable} options={{ title: 'Users Table' }}/>
+                <Stack.Screen name='Loading' component={loadingScreen} options={{ headerShown: false }}/>
             </Stack.Navigator>
         </NavigationContainer>
     )
