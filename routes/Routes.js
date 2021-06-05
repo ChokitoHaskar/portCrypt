@@ -8,7 +8,6 @@ import shiftCipher from '../Scenes/CipherShift'
 import vigenereCipher from '../Scenes/CipherVigenere';
 import loginPage from '../Scenes/Auth/Login';
 import registerPage from '../Scenes/Auth/Register';
-import usersTable from '../Scenes/Admin/UsersTable'
 import loadingScreen from '../Scenes/Loading'
 
 const Stack = createStackNavigator()
