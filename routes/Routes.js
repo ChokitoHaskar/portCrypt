@@ -10,32 +10,54 @@ import loginPage from '../Scenes/Auth/Login';
 import registerPage from '../Scenes/Auth/Register';
 import loadingScreen from '../Scenes/Loading'
 
-const Stack = createStackNavigator()
 
-const appTheme = {
-    dark: true,
-    colors: {
-      primary: '#000000',
-      background: '#000000',
-      card: '#A4036F',
-      text: '#FFFFFF',
-      border: '#000000',
-      notification: '#000000',
-    },
-}
+const Stack = createStackNavigator()
 
 function routes() {
     return(
-        <NavigationContainer theme={appTheme}>
+        <NavigationContainer>
             <StatusBar style='light' />
-            <Stack.Navigator headerMode='screen' initialRouteName='LoginPage'>
-                <Stack.Screen name='LoginPage' component={loginPage} options={{ headerShown:false }} />
-                <Stack.Screen name='RegisterPage' component={registerPage} options={{ headerShown:false }} />
-                <Stack.Screen name='Home' component={Home} options={{ headerTitleAlign:'center', title: 'Port-Crypt'}}/>
-                <Stack.Screen name='ShiftCipher' component={shiftCipher} options={{ title: 'Shift Cipher' }}/>
-                <Stack.Screen name='AffineCipher' component={affineCipher} options={{ title: 'Affine Cipher' }}/>
-                <Stack.Screen name='VigenereCipher' component={vigenereCipher} options={{ title: 'Vigenere Cipher' }}/>
-                <Stack.Screen name='Loading' component={loadingScreen} options={{ headerShown: false }}/>
+            <Stack.Navigator
+                screenOptions={{
+                    headerStyle:{
+                        backgroundColor: '#A4036F'
+                    },
+                    headerTintColor: '#fff',
+                    headerTitleStyle:{
+                        fontWeight:'bold'
+                    },
+                }}
+                headerMode='screen'
+                initialRouteName='Home'
+                >
+                <Stack.Screen
+                    name='LoginPage'
+                    component={loginPage}
+                    options={{ headerShown:false }} />
+                <Stack.Screen
+                    name='RegisterPage'
+                    component={registerPage}
+                    options={{ headerShown:false }} />
+                <Stack.Screen
+                    name='Home'
+                    component={Home}
+                    options={{ headerTitleAlign:'center', title: 'Port-Crypt'}}/>
+                <Stack.Screen
+                    name='ShiftCipher'
+                    component={shiftCipher}
+                    options={{ title: 'Shift Cipher' }}/>
+                <Stack.Screen
+                    name='AffineCipher'
+                    component={affineCipher}
+                    options={{ title: 'Affine Cipher' }}/>
+                <Stack.Screen
+                    name='VigenereCipher'
+                    component={vigenereCipher}
+                    options={{ title: 'Vigenere Cipher' }}/>
+                <Stack.Screen
+                    name='Loading'
+                    component={loadingScreen}
+                    options={{ headerShown: false }}/>
             </Stack.Navigator>
         </NavigationContainer>
     )
