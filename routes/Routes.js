@@ -18,24 +18,32 @@ const Tab = createBottomTabNavigator()
 
 function HomeTabs() {
     return(
-        <Stack.Navigator>
-            <Stack.Screen
-                name='Home'
-                component={Home}
-                options={{ headerTitleAlign:'center', title: 'Port-Crypt'}}/>
-            <Stack.Screen
-                    name='ShiftCipher'
-                    component={shiftCipher}
-                    options={{ title: 'Shift Cipher' }}/>
+        <NavigationContainer>
+            <Stack.Navigator
+                screenOptions={{
+                    headerStyle:{
+                        backgroundColor:'#A4036F'
+                    },
+                    headerTintColor:'#fff'
+                    }}>
                 <Stack.Screen
-                    name='AffineCipher'
-                    component={affineCipher}
-                    options={{ title: 'Affine Cipher' }}/>
+                    name='Home'
+                    component={Home}
+                    options={{ headerTitleAlign:'center', title: 'Port-Crypt'}}/>
                 <Stack.Screen
-                    name='VigenereCipher'
-                    component={vigenereCipher}
-                    options={{ title: 'Vigenere Cipher' }}/>
-        </Stack.Navigator>
+                        name='ShiftCipher'
+                        component={shiftCipher}
+                        options={{ title: 'Shift Cipher' }}/>
+                    <Stack.Screen
+                        name='AffineCipher'
+                        component={affineCipher}
+                        options={{ title: 'Affine Cipher' }}/>
+                    <Stack.Screen
+                        name='VigenereCipher'
+                        component={vigenereCipher}
+                        options={{ title: 'Vigenere Cipher' }}/>
+            </Stack.Navigator>
+        </NavigationContainer>
     )
 }
 
@@ -94,4 +102,4 @@ function routes() {
     )
 }
 
-export default Root
+export default HomeTabs

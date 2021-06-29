@@ -14,8 +14,7 @@ const home = ({navigation}) => {
   }
 
   return(
-    <View style={globalStyles.base}>
-      <View style={{flex:1, flexDirection: 'row', alignItems:'flex-end'}}>
+    <View style={[globalStyles.base, {flexDirection:'row'}]}>
         <TouchableOpacity onPress={ () => navigation.navigate('ShiftCipher')}>
           <View style={[styles.button, {backgroundColor: '#CC3F0C'}]}>
             <Text style={{color:'white'}}>Shift</Text>
@@ -31,14 +30,6 @@ const home = ({navigation}) => {
             <Text style={{color:'white', fontSize: 12.5}}>Vigenere</Text>
           </View>
         </TouchableOpacity>
-      </View>
-      <View style={{flex: 1, marginTop:10}}>
-        <TouchableOpacity onPress={logOut}>
-          <View style={[styles.button, {backgroundColor: '#33673B'}]}>
-            <Text style={{color:'white', fontSize: 12.5}}>Log Out</Text>
-          </View>
-        </TouchableOpacity>
-      </View>
     </View>
   )
 }
